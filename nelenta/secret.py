@@ -1,1 +1,0 @@
-MY_SECRET_KEY = '@kownpv*t76_y1fx92#-3s6o&kst0d)(9*_o2wyz7upsvr4g^5'
