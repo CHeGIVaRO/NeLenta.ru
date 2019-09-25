@@ -1,0 +1,4 @@
+*.sqlite3
+/nelenta/secret.py
+/media/*
+.vscode

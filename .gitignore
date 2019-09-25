@@ -1,1 +1,4 @@
-hello.pyc
+/nelenta/secret.py
+db.sqlite3
+/media/*
+.vscode/
