@@ -19,13 +19,14 @@
             <div class="collapse navbar-collapse flex-column" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffffff">
+                        <a class="nav-link dropdown-toggle" href="{% url 'by_rubric' rubric.pk %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffffff">
                             {{ rubric.name }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'by_rubric' rubric.pk %}">Всё</a>
                             {% for categori in categories %}
                                 {% if rubric.name == categori.rubric.name %}
-                                    <a class="dropdown-item" href="#">{{categori.name}}</a>
+                                    <a class="dropdown-item" href="{% url 'by_categori' categori.pk %}">{{categori.name}}</a>
                                 {% endif %}
                             {% endfor %}
                         </div>
