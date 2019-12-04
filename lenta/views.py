@@ -10,10 +10,6 @@ def index(request):
                "categories": categories,
                "newses": newses
                }
-    for categori in categories:
-        for rubric in rubrics:
-            if rubric.name == categori.rubric.name:
-                print(type(categori.rubric))
     return render(request, 'index.html', context)
 
 

@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/cheg/Yandex.Disk/MyProjects/git_projects/nelenta/env"
+set -gx VIRTUAL_ENV "/home/cheg/code/nelenta/env"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
