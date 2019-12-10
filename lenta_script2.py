@@ -1,7 +1,6 @@
 import requests, os, re, sys
 from bs4 import BeautifulSoup
 from datetime import datetime
-from multiprocessing.pool import ThreadPool
 from multiprocessing import Pool
 import time
 from transliterate import translit, get_available_language_codes
