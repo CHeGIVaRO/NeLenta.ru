@@ -2,7 +2,17 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 from .models import Rubric, Categori, News
 import json
-from  django.http import HttpResponse
+from django.http import HttpResponse
+
+def pagination(list_news, numb_page):
+    p = Paginator(list_news, 12)
+    return p.page(numb_page).object_list
+
+def get_content(request):
+    number_page = request.GET.get('number_page')
+    newses = pagination(News.objects.all(), number_page)
+    context = {"newses": newses}
+    return render(request, 'ajax_content.html', context)
 
 def test_pagination(request, number_page):
     p = Paginator(News.objects.all(), 12)
@@ -15,16 +25,16 @@ def test_pagination(request, number_page):
         string_for_test += news.title
     print(string_for_test)
     print("-----------------------------------------------------")
-    #curent_page_content = p.page(number_page).object_list
     context = {"string_for_test": string_for_test,
                "pages_num": pages_num}
     dump = json.dumps(context)
     return HttpResponse(dump, content_type='application/json')
 
+
 def index(request):
     rubrics = Rubric.objects.all()
     categories = Categori.objects.all()
-    newses = News.objects.all()
+    newses = pagination(News.objects.all(), 1)
     context = {"rubrics": rubrics,
                "categories": categories,
                "newses": newses

@@ -1,0 +1,13 @@
+{% for news in newses %}
+        <div class="card shadow text-white col-3 m-2 p-1 rounded">
+            <img src="{{ news.main_image.url }}" alt="{{ news.title }}" class="card-img">
+            <div class="card-img-overlay">
+                <h5 class="card-title" style="text-shadow: black 0 0 10px">{{ news.title }}</h5>
+                <p class="card-text" style="text-shadow: black 0 0 10px">{{ news.shoet_content }}</p>
+                <a href="#" class="stretched-link"></a>
+            </div>
+        </div>
+{% endfor %}
+
+
+

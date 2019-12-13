@@ -1,12 +1,13 @@
 from django.db import models
 from django.conf import settings
 
+
 class News(models.Model):
-    title = models.CharField(max_length = 250, verbose_name = "Заголовок статьи")
+    title = models.CharField(max_length=250, verbose_name = "Заголовок статьи")
     content = models.TextField(verbose_name = "Контент статьи")
-    published = models.DateTimeField(auto_now_add = True, db_index = True, verbose_name = "Дата публикации")
-    rubric = models.ForeignKey('Rubric', on_delete = models.PROTECT, verbose_name='Рубрика')
-    categori = models.ForeignKey('Categori', on_delete = models.PROTECT, verbose_name='Категория')
+    published = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name = "Дата публикации")
+    rubric = models.ForeignKey('Rubric', on_delete=models.PROTECT, verbose_name='Рубрика')
+    categori = models.ForeignKey('Categori', on_delete=models.PROTECT, verbose_name='Категория')
     watches = models.IntegerField(verbose_name='Просмотры', default=0, editable=False)
     rating = models.IntegerField(verbose_name='Рейтинг', default=0, editable=False)
     shoet_content = models.CharField(verbose_name="раткое описание", max_length=100, default=" ")
@@ -16,6 +17,7 @@ class News(models.Model):
         verbose_name_plural = 'Новости'
         verbose_name = 'Новость'
         ordering =['-published']
+
 
 class Rubric(models.Model):
     name = models.CharField(max_length=20, db_index=True, verbose_name = "Название")
@@ -28,6 +30,7 @@ class Rubric(models.Model):
         verbose_name = 'Рубрика'
         ordering =['name']
 
+
 class Categori(models.Model):
     rubric = models.ForeignKey('Rubric', on_delete = models.PROTECT, verbose_name='Рубрика')
     name = models.CharField(max_length=20, db_index=True, verbose_name = "Название")
@@ -39,6 +42,7 @@ class Categori(models.Model):
         verbose_name_plural = 'Категории'
         verbose_name = 'Категория'
         ordering =['name']
+
 
 class Comment(models.Model):
     auth_name = models.CharField(max_length=30, verbose_name="Автор")
