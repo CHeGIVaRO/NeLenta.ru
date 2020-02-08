@@ -34,7 +34,8 @@ def test_pagination(request, number_page):
 def index(request):
     rubrics = Rubric.objects.all()
     categories = Categori.objects.all()
-    newses = pagination(News.objects.all(), 1)
+    newses = News.objects.all()
+    #newses = pagination(News.objects.all(), 1)
     context = {"rubrics": rubrics,
                "categories": categories,
                "newses": newses
@@ -62,4 +63,14 @@ def by_category(request, categori_id):
                "newses": newses
                }
     return render(request, 'by_categori.html', context)
+
+def news_page(request, news_id):
+    news = News.objects.get(pk=news_id)
+    categories = Categori.objects.all()
+    rubrics = Rubric.objects.all()
+    context = {"rubrics": rubrics,
+               "categories": categories,
+               "news": news
+               }
+    return render(request, 'news_page.html', context)
 

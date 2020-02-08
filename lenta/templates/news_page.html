@@ -1,0 +1,7 @@
+{% extends "basic.html" %}
+{% load static%}
+{% block content %}
+<img src="{{ news.main_image.url }}" alt="{{ news.title }}" height=200px>
+<h1>{{ news.title }}</h1>
+<p>{{ news.content }}</p>
+{% endblock %}

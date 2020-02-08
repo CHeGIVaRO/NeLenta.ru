@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, by_rubric, by_category, test_pagination, get_content
+from .views import index, by_rubric, by_category, test_pagination, get_content, news_page
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -10,4 +10,5 @@ urlpatterns = [
     path('categori/<int:categori_id>', by_category, name='by_categori'),
     path('testpagination/<int:number_page>', test_pagination, name='test_pagination'),
     path('get_content/', get_content, name='get_content'),
+    path('news_page/<int:news_id>/', news_page, name='news_page'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
