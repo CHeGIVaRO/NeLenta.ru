@@ -73,7 +73,7 @@ def get_content(soup):
     paragraphs = soup.find('div', class_='b-text clearfix js-topic__text').find_all('p')
     content = ''
     for p in paragraphs:
-        content += '<p>' + p.text + '</p>' + '<br>'
+        content += p.text
     return content
 
 
@@ -81,6 +81,7 @@ def get_fucking_img_url(news_title, soup):
     file_name = translit(news_title, 'ru', reversed=True)
     file_name = file_name.strip().replace(" ", "")
     file_name = ''.join(file_name.split())
+    file_name = file_name[0:15]
     try:
         news_img_url = soup.find('div', class_='b-topic__title-image').find('img')['src']
     except AttributeError:
